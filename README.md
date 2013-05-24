@@ -1,8 +1,7 @@
-# EHU-DBpedia-Spotlight
+# ixa-dbpedia-spotlight
 
 This repository contains the required changes to the original DBpedia Spotlight
-source code to be able to build your own DBpedia Spotlight for each language within
-the OpeNER project.
+source code to be able to build your own DBpedia Spotlight for your own language.
 
 The result will be the creation of a jar binary of the DBpedia Spotlight that takes
 as argument a server_$lang.properties file with language specific configuration to run a rest
@@ -14,14 +13,12 @@ Developed by IXA NLP Group (ixa.si.ehu.es) for the 7th Framework OpeNER European
 
 The contents of the repository are the following:
 
-- core: directory containing the core of the EHU DBpedia Spotlight
     + conf/ modified configuration files from the original DBpedia Spotlight
     + core/ modified source files from the original DBpedia Spotlight
     + install.bash script to install, modify, compile and create a binary of
       the original DBpedia Spotlight
     + pom.xml modified pom.xml to install DBpedia Spotlight
-
-- README.md: This README
+    + README.md: This README
 
 
 ## Install and Modify dbpedia-spotlight for OpeNER NED
@@ -31,7 +28,7 @@ directly. If you have already your Lucene-based disambiguation index for DBPedia
 ready and zipped as index-$lang.tgz, please go straight to step 4.
 Otherwise, follow these steps:
 
-### 1. Install JDK 1.7
+## 1. Install JDK 1.7
 
 If you do not install JDK 1.7 in a default location, you will probably need to configure the PATH in .bashrc or .bash_profile:
 
@@ -52,7 +49,7 @@ If you re-login into your shell and run the command
 
 You should now see that your jdk is 1.7
 
-### 2. Install MAVEN 3
+## 2. Install MAVEN 3
 
 Download MAVEN 3 from
 
@@ -76,19 +73,25 @@ If you re-login into your shell and run the command
 
 You should see reference to the MAVEN version you have just installed plus the JDK 7 that is using.
 
-### 3. Create Disambiguation Index
+## 3. Create Disambiguation Index
 
 You will need to prepare the Disambiguation index following the instructions as specified in the
-[Internationalization of DBpedia Spotlight for OpeNER](https://github.com/opener-project/EHU-DBpedia-Spotlight/wiki/DBpedia-Spotlight-Internationalization-for-OpeNER )
+[Internationalization of DBpedia Spotlight for OpeNER](https://bitbucket.org/ragerri/ixa-dbpedia-spotlight/wiki/Home)
 
-### 4. Get repository from github
+## 4. Get repository from bitbucket or github
 
-    git clone git@github.com:opener-project/EHU-DBpedia-Spotlight.git
-    cd EHU-DBpedia-Spotlight/core
+From bitbucket:
 
-### 5. Install and Modify DBpedia Spotlight for NED in OpeNER
+    hg clone ssh://hg@bitbucket.org/ragerri/ixa-dbpedia-spotlight
 
-From the EHU-DBpedia-Spotlight/core/ directory run:
+From Github:
+
+    git clone git@github.com:opener-project/ixa-dbpedia-spotlight.git
+    cd ixa-dbpedia-spotlight/core
+
+## 5. Install and Modify DBpedia Spotlight for NED in OpeNER
+
+From the ixa-dbpedia-spotlight/core/ directory run:
 
     ./install.bash $lang index-$lang.tgz
 
@@ -101,13 +104,13 @@ Spotlight. It also performs the required modifications to be able to
 run a version of DBpedia Spotlight for any desired language. These are
 steps performed by the install.bash script:
 
-#### 5.1 Download the dbpedia spotlight
+### 5.1 Download the dbpedia spotlight
 
    git clone https://github.com/dbpedia-spotlight/dbpedia-spotlight.git
 
 The latest version of the dbpedia-spotlight is obtained and it is stored in the "dbpedia-spotlight" directory
 
-#### 5.2 Modify some of the configuration files
+### 5.2 Modify some of the configuration files
 
 It copies from EHU-DBpedia-spotlight to dbpedia-spotlight the following files:
 
@@ -126,14 +129,14 @@ and are assigned by language code alphabetical order:
      - it: 2050
      - nl: 2060
 
-The port for each language needs to be given as argument to the [EHU-ned_kernel](https://github.com/opener-project/EHU-ned_kernel) module.
+The port for each language needs to be given as argument to the [ixa-pipe-ned](https://github.com/opener-project/EHU-ned_kernel) module.
 
-#### 5.3 Install the dbpedia spotlight
+### 5.3 Install the dbpedia spotlight
 
      cd dbpedia-spotlight
      mvn [clean] install
 
-#### 5.4 Create a jar to run the dbpedia spotlight as a service
+### 5.4 Create a jar to run the dbpedia spotlight as a service
 
      cd dbpedia-spotlight/dist
      mvn clean package
@@ -145,7 +148,7 @@ This command creates (among others)
 **This jar contains every required dependency to run dbpedia-spotlight as a rest server.**
 
 
-#### 5.5 Move index-$lang to data directory
+### 5.5 Move index-$lang to data directory
 
 The install.bash script needs to be passed the index-$lang.tgz as argument. This will be
 moved and unzip to the data subdirectory:
@@ -154,7 +157,7 @@ moved and unzip to the data subdirectory:
      tar xvzf index-$lang.tgz
 
 
-### 6 Run the dbpedia-spotlight (modified for OpeNER) server
+## 6 Run the dbpedia-spotlight (modified for OpeNER) server
 
 Before runing the server, verify that the dbpedia-spotlight directory contains:
 
@@ -170,9 +173,9 @@ Once everything is correct, go to the conf directory and **run the server**:
 
 
 **Congratulations!!** You can now send queries to the running OpeNER dbpedia-spotlight server via the
-[EHU-ned_kernel module](https://github.com/opener-project/EHU-ned_kernel).
+[ixa-pipe-ned module](ssh://hg@bitbucket.org/ragerri/ixa-pipe-ned).
 
-#### Contact information
+### Contact information
 
     Rodrigo Agerri and Itziar Aldabe
     {rodrigo.agerri,itziar.aldabe}@ehu.es
