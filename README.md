@@ -21,7 +21,7 @@ The contents of the repository are the following:
     + README.md: This README
 
 
-## Install and Modify dbpedia-spotlight for OpeNER NED
+## Install and Modify ixa-dbpedia-spotlight
 
 If you already have installed in your machine JDK7 and MAVEN 3, please go to step 3
 directly. If you have already your Lucene-based disambiguation index for DBPedia Spotlight
@@ -76,22 +76,16 @@ You should see reference to the MAVEN version you have just installed plus the J
 ## 3. Create Disambiguation Index
 
 You will need to prepare the Disambiguation index following the instructions as specified in the
-[Internationalization of DBpedia Spotlight for OpeNER](https://bitbucket.org/ragerri/ixa-dbpedia-spotlight/wiki/Home)
+[IXA Internationalization of DBpedia Spotlight](https://github.com/ragerri/ixa-dbpedia-spotlight/wiki/IXA-DBpedia-Spotlight-Internationalization)
 
-## 4. Get repository from bitbucket or github
+## 4. Get repository
 
-From bitbucket:
-
-    hg clone ssh://hg@bitbucket.org/ragerri/ixa-dbpedia-spotlight
-
-From Github:
-
-    git clone git@github.com:opener-project/ixa-dbpedia-spotlight.git
-    cd ixa-dbpedia-spotlight/core
+    git clone git@github.com:ragerri/ixa-dbpedia-spotlight.git
+    cd ixa-dbpedia-spotlight/
 
 ## 5. Install and Modify DBpedia Spotlight for NED in OpeNER
 
-From the ixa-dbpedia-spotlight/core/ directory run:
+From the ixa-dbpedia-spotlight/ directory run:
 
     ./install.bash $lang index-$lang.tgz
 
@@ -129,7 +123,7 @@ and are assigned by language code alphabetical order:
      - it: 2050
      - nl: 2060
 
-The port for each language needs to be given as argument to the [ixa-pipe-ned](https://github.com/opener-project/EHU-ned_kernel) module.
+The port for each language needs to be given as argument to the [ixa-pipe-ned](https://github.com/ragerri/ixa-pipe-ned) module.
 
 ### 5.3 Install the dbpedia spotlight
 
@@ -173,7 +167,7 @@ Once everything is correct, go to the conf directory and **run the server**:
 
 
 **Congratulations!!** You can now send queries to the running OpeNER dbpedia-spotlight server via the
-[ixa-pipe-ned module](ssh://hg@bitbucket.org/ragerri/ixa-pipe-ned).
+[ixa-pipe-ned module](https://github.com/ragerri/ixa-pipe-ned).
 
 ### Contact information
 
