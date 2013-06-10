@@ -80,7 +80,7 @@ You will need to prepare the Disambiguation index following the instructions as 
 
 ## 4. Get repository
 
-    git clone git@github.com:ragerri/ixa-dbpedia-spotlight.git
+    git clone git@github.com:ixa-ehu/ixa-dbpedia-spotlight.git
     cd ixa-dbpedia-spotlight/
 
 ## 5. Install and Modify DBpedia Spotlight for NED in OpeNER
@@ -123,7 +123,7 @@ and are assigned by language code alphabetical order:
      - it: 2050
      - nl: 2060
 
-The port for each language needs to be given as argument to the [ixa-pipe-ned](https://github.com/ragerri/ixa-pipe-ned) module.
+The port for each language needs to be given as argument to the [ixa-pipe-ned](https://github.com/ixa-ehu/ixa-pipe-ned) module.
 
 ### 5.3 Install the dbpedia spotlight
 
@@ -167,7 +167,7 @@ Once everything is correct, go to the conf directory and **run the server**:
 
 
 **Congratulations!!** You can now send queries to the running OpeNER dbpedia-spotlight server via the
-[ixa-pipe-ned module](https://github.com/ragerri/ixa-pipe-ned).
+[ixa-pipe-ned module](https://github.com/ixa-ehu/ixa-pipe-ned).
 
 ### Contact information
 
