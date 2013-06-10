@@ -76,7 +76,7 @@ You should see reference to the MAVEN version you have just installed plus the J
 ## 3. Create Disambiguation Index
 
 You will need to prepare the Disambiguation index following the instructions as specified in the
-[IXA Internationalization of DBpedia Spotlight](https://github.com/ragerri/ixa-dbpedia-spotlight/wiki/IXA-DBpedia-Spotlight-Internationalization)
+[IXA Internationalization of DBpedia Spotlight](https://github.com/ixa-ehu/ixa-dbpedia-spotlight/wiki/IXA-DBpedia-Spotlight-Internationalization)
 
 ## 4. Get repository
 
