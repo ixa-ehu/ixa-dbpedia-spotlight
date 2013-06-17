@@ -8,7 +8,7 @@ cd ..
 
 if [ $# -eq 0 ] || [ $# -eq 1 ]
   then
-  echo "Not enough arguments supplied; Please supply -lang and index-lang.tgz path as arguments.
+  echo "Not enough arguments supplied; Please supply -lang and index-lang.tgz absolute path as arguments.
         For example: ./install.bash es /home/user/index-es.tgz"
   exit 1
 fi
@@ -28,11 +28,11 @@ then
     echo "the original pom.xml files have been already replaced, skipping the replacement"
     cd ..
 else
-    mv pom.xml pom.xml.orig
-    mv core/pom.xml core/pom.xml.orig
+    cp pom.xml pom.xml.orig
+    #mv core/pom.xml core/pom.xml.orig
     cd ../ixa-dbpedia-spotlight
-    cp pom.xml ../dbpedia-spotlight/
-    cp core/pom.xml ../dbpedia-spotlight/core/
+    #cp pom.xml ../dbpedia-spotlight/
+    #cp core/pom.xml ../dbpedia-spotlight/core/
     cp conf/server_$LANG.properties ../dbpedia-spotlight/conf/
     cd ..
 fi
