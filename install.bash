@@ -45,6 +45,10 @@ echo "creating the jar with dependencies"
 cd dist
 mvn clean package
 
+echo "creating the maven local repository to run ned module"
+
+mvn install:install-file -Dfile=target/dbpedia-spotlight-0.6-jar-with-dependencies.jar -DgroupId=ixa -DartifactId=dbpedia.spotlight -Dversion=0.6 -Dpackaging=jar -DgeneratePom=true
+
 echo "creating a directory to store the indexes..."
 cd ..
 
