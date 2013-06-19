@@ -106,11 +106,7 @@ The latest version of the dbpedia-spotlight is obtained and it is stored in the 
 
 ### 5.2 Modify some of the configuration files
 
-It copies from EHU-DBpedia-spotlight to dbpedia-spotlight the following files:
-
-     - pom.xml
-     - core/pom.xml
-     - conf/server_$lang properties, one for each language
+It copies from EHU-DBpedia-spotlight to dbpedia-spotlight the conf/server_$lang properties, one for each language.
 
 Each server_$lang.properties files contain the necessary information to run a NED rest service for each language using
 DBpedia Spotlight. Each server_$lang.properties has hard-coded the port to use. The port number range from 2010 to 2060
@@ -125,12 +121,7 @@ and are assigned by language code alphabetical order:
 
 The port for each language needs to be given as argument to the [ixa-pipe-ned](https://github.com/ixa-ehu/ixa-pipe-ned) module.
 
-### 5.3 Install the dbpedia spotlight
-
-     cd dbpedia-spotlight
-     mvn [clean] install
-
-### 5.4 Create a jar to run the dbpedia spotlight as a service
+### 5.3 Create a jar to run the dbpedia spotlight as a service
 
      cd dbpedia-spotlight/dist
      mvn clean package
@@ -141,6 +132,12 @@ This command creates (among others)
 
 **This jar contains every required dependency to run dbpedia-spotlight as a rest server.**
 
+### 5.4 Create local maven repository for dbpedia-spotlight
+
+The install.bash scripts automatically creates a local maven repository. This repository is used as a dependency
+by the ixa-pipe-ned module.
+
+    mvn install:install-file -Dfile=target/dbpedia-spotlight-0.6-jar-with-dependencies.jar -DgroupId=ixa -DartifactId=dbpedia.spotlight -Dversion=0.6 -Dpackaging=jar -DgeneratePom=true
 
 ### 5.5 Move index-$lang to data directory
 
