@@ -29,20 +29,16 @@ then
     cd ..
 else
     cp pom.xml pom.xml.orig
-    #mv core/pom.xml core/pom.xml.orig
     cd ../ixa-dbpedia-spotlight
-    #cp pom.xml ../dbpedia-spotlight/
-    #cp core/pom.xml ../dbpedia-spotlight/core/
     cp conf/server_$LANG.properties ../dbpedia-spotlight/conf/
     cd ..
 fi
 
 cd $SPOTLIGHTDIR
-echo "installing the modified dbpedia spotlight"
-mvn clean install
+cd dist
 
 echo "creating the jar with dependencies"
-cd dist
+
 mvn clean package
 
 echo "creating the maven local repository to run ned module"
