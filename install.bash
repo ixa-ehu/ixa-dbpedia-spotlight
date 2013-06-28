@@ -35,6 +35,9 @@ else
 fi
 
 cd $SPOTLIGHTDIR
+echo "installing DBpedia Spotlight"
+mvn clean install
+
 cd dist
 
 echo "creating the jar with dependencies"

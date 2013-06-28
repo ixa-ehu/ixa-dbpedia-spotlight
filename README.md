@@ -1,4 +1,4 @@
-# ixa-dbpedia-spotlight
+# spotlight-installer
 
 This repository contains the required changes to the original DBpedia Spotlight
 source code to be able to build your own DBpedia Spotlight for your own language.
@@ -21,7 +21,7 @@ The contents of the repository are the following:
     + README.md: This README
 
 
-## Install and Modify ixa-dbpedia-spotlight
+## Install and Modify spotlight-installer
 
 If you already have installed in your machine JDK7 and MAVEN 3, please go to step 3
 directly. If you have already your Lucene-based disambiguation index for DBPedia Spotlight
@@ -76,16 +76,16 @@ You should see reference to the MAVEN version you have just installed plus the J
 ## 3. Create Disambiguation Index
 
 You will need to prepare the Disambiguation index following the instructions as specified in the
-[IXA Internationalization of DBpedia Spotlight](https://github.com/ixa-ehu/ixa-dbpedia-spotlight/wiki/IXA-DBpedia-Spotlight-Internationalization)
+[IXA Internationalization of DBpedia Spotlight](https://github.com/ixa-ehu/spotlight-installer/wiki/IXA-DBpedia-Spotlight-Internationalization)
 
 ## 4. Get repository
 
-    git clone git@github.com:ixa-ehu/ixa-dbpedia-spotlight.git
-    cd ixa-dbpedia-spotlight/
+    git clone git@github.com:ixa-ehu/spotlight-installer.git
+    cd spotlight-installer/
 
 ## 5. Install and Modify DBpedia Spotlight for NED in OpeNER
 
-From the ixa-dbpedia-spotlight/ directory run:
+From the spotlight-installer/ directory run:
 
     ./install.bash $lang index-$lang.tgz
 
@@ -123,10 +123,12 @@ The port for each language needs to be given as argument to the [ixa-pipe-ned](h
 
 ### 5.3 Create a jar to run the dbpedia spotlight as a service
 
-     cd dbpedia-spotlight/dist
+     cd dbpedia-spotlight/
+     mvn clean install
+     cd dist/
      mvn clean package
 
-This command creates (among others)
+This last command creates (among others)
 
      dbpedia-spotlight-0.6-jar-with-dependencies.jar
 
